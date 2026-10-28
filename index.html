@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ishi | Software Engineering Student</title>
+<meta name="description" content="Portfolio of Ishi, a Software Engineering student in Sri Lanka building full-stack apps with Java, Spring Boot, React, FastAPI and PostgreSQL.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#071219;--bg2:#0C1D26;--surface:rgba(255,255,255,.045);--ink:#EAF3F5;--muted:#9BB2BC;--line:rgba(255,255,255,.1);--a:#5B8CFF;--b:#2DD4BF;--warm:#F29B6B;--code:#040C11;color-scheme:dark}
+:root[data-theme=light]{--bg:#EEF5F3;--bg2:#E1EDEA;--surface:#fff;--ink:#10202A;--muted:#4F6270;--line:#C9DAD6;--a:#2347C5;--b:#0E8F83;--warm:#B8572B;--code:#10202A;color-scheme:light}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.65 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(600px 400px at 85% 5%,color-mix(in srgb,var(--a) 22%,transparent),transparent),radial-gradient(500px 400px at 5% 40%,color-mix(in srgb,var(--b) 14%,transparent),transparent),radial-gradient(500px 400px at 95% 80%,color-mix(in srgb,var(--warm) 12%,transparent),transparent)}
+h1,h2,h3{font-family:'Bricolage Grotesque',Figtree,sans-serif;line-height:1.08;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--b);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:90px 0}
+h2{font-size:clamp(32px,5vw,48px);font-weight:800;margin-bottom:12px}
+.lede{color:var(--muted);max-width:56ch;margin-bottom:40px}
+#bar{position:fixed;top:0;left:0;right:0;height:3px;z-index:50;background:linear-gradient(90deg,var(--a),var(--b),var(--warm));transform:scaleX(0);transform-origin:0}
+header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:800 22px 'Bricolage Grotesque',sans-serif;text-decoration:none}
+.links{display:flex;gap:22px;align-items:center;font-weight:500;font-size:15px}
+.links a{text-decoration:none;color:var(--muted)}.links a:hover{color:var(--ink)}
+.ib{background:var(--surface);border:1px solid var(--line);color:var(--ink);border-radius:10px;height:36px;padding:0 12px;cursor:pointer;font:500 13px 'JetBrains Mono',monospace}
+@media(max-width:760px){.links a{display:none}}
+.hero{position:relative;padding:70px 0 80px}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+@media(max-width:880px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(40px,6.6vw,72px);font-weight:800;margin-bottom:16px}
+.typed{font:500 clamp(16px,2.2vw,20px) 'JetBrains Mono',monospace;color:var(--b);min-height:1.6em;margin-bottom:16px}
+.typed::after{content:"";display:inline-block;width:9px;height:1.1em;background:var(--b);margin-left:3px;vertical-align:-.2em;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.hero p{color:var(--muted);max-width:46ch;margin-bottom:28px;font-size:19px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 24px;border-radius:12px;font-weight:600;text-decoration:none;border:1px solid var(--line);background:var(--surface);transition:transform .15s}
+.btn.primary{background:linear-gradient(135deg,var(--a),var(--b));color:#031016;border:0}
+.btn:hover{transform:translateY(-2px)}
+.code{background:var(--code);color:#DDE8F0;border:1px solid var(--line);border-radius:16px;overflow:hidden;font:400 14.5px/1.8 'JetBrains Mono',monospace;box-shadow:0 30px 60px -30px #000}
+.code .t{display:flex;justify-content:space-between;padding:11px 16px;background:rgba(255,255,255,.06);font-size:12.5px;color:#9DB1BC}
+.code .t b{color:#9BE3B5;font-weight:500}
+.code pre{padding:16px 20px;white-space:pre-wrap;font:inherit}
+.l{display:block;opacity:0;animation:in .4s forwards}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.k{color:#8FB4FF}.s{color:#9BE3B5}.n{color:#F2B27E}
+.mq{border-block:1px solid var(--line);overflow:hidden;padding:16px 0;background:var(--surface)}
+.mq div{display:flex;gap:44px;width:max-content;animation:mq 32s linear infinite;font:500 15px 'JetBrains Mono',monospace;color:var(--muted)}
+.mq span::before{content:"◆";color:var(--b);margin-right:44px;font-size:9px;vertical-align:2px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:56px 0 0}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.stat b{display:block;font:800 clamp(34px,5vw,50px) 'Bricolage Grotesque',sans-serif;line-height:1}
+.stat span{color:var(--muted);font-size:15px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 18px;border-radius:999px;font:500 15px Figtree,sans-serif;cursor:pointer}
+.chip[aria-pressed=true]{background:linear-gradient(135deg,var(--a),var(--b));color:#031016;border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.proj{--mx:50%;--my:50%;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:transform .12s,border-color .2s;overflow:hidden}
+.proj::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx) var(--my),color-mix(in srgb,var(--b) 20%,transparent),transparent 70%);opacity:0;transition:opacity .25s;pointer-events:none}
+.proj:hover{border-color:color-mix(in srgb,var(--b) 55%,var(--line))}.proj:hover::before{opacity:1}
+.proj.feature{grid-column:1/-1}
+.cat{font:500 12.5px 'JetBrains Mono',monospace;color:var(--b)}
+.proj h3{font-size:24px;font-weight:700}
+.proj p{color:var(--muted);font-size:16px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.tags span{font:500 12.5px 'JetBrains Mono',monospace;background:var(--bg2);border:1px solid var(--line);padding:3px 10px;border-radius:7px}
+.gh{font-weight:600;text-decoration:none;color:var(--a)}.gh:hover{text-decoration:underline}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+.skill h3{font-size:20px;margin-bottom:14px}
+.skill div{display:flex;flex-wrap:wrap;gap:8px}
+.skill span{padding:5px 13px;border-radius:999px;background:var(--bg2);border:1px solid var(--line);font-size:15px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+@media(max-width:800px){.two{grid-template-columns:1fr}}
+.tl{border-left:2px solid var(--line);padding-left:24px;display:grid;gap:28px}
+.tl div{position:relative}
+.tl div::before{content:"";position:absolute;left:-32px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--b);box-shadow:0 0 0 5px color-mix(in srgb,var(--b) 25%,transparent)}
+.tl small{color:var(--muted);font:500 13px 'JetBrains Mono',monospace}
+.tl h3{font-size:21px;margin:4px 0}
+.tl p,.award p{color:var(--muted);font-size:16px}
+.award{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:18px}
+.award .r{font:800 46px 'Bricolage Grotesque',sans-serif;color:var(--warm);line-height:1}
+#contact .box{text-align:center;background:linear-gradient(135deg,color-mix(in srgb,var(--a) 28%,var(--bg2)),color-mix(in srgb,var(--b) 22%,var(--bg2)));border:1px solid var(--line);border-radius:28px;padding:64px 24px}
+#contact .lede{margin-inline:auto}#contact .btns{justify-content:center}
+footer{padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
+dialog{margin:12vh auto auto;width:min(560px,92vw);padding:0;border:1px solid var(--line);border-radius:16px;background:var(--bg2);color:var(--ink);box-shadow:0 40px 80px -20px #000}
+dialog::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
+dialog input{width:100%;padding:18px 20px;background:none;border:0;border-bottom:1px solid var(--line);color:inherit;font:400 17px Figtree,sans-serif;outline:0}
+dialog ul{list-style:none;padding:8px;max-height:50vh;overflow:auto}
+dialog li{padding:11px 14px;border-radius:10px;cursor:pointer}
+dialog li.on{background:var(--surface);outline:1px solid var(--line)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.l{opacity:1}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<header><div class="wrap"><nav aria-label="Main">
+  <a class="logo" href="#top" id="logo">Ishi</a>
+  <div class="links">
+    <a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#about">Education</a><a href="#contact">Contact</a>
+    <button class="ib" id="kbtn" aria-label="Open quick menu">Ctrl K</button>
+    <button class="ib" id="theme" aria-label="Toggle light and dark theme">◐</button>
+  </div>
+</nav></div></header>
+
+<main id="top">
+<section class="hero"><canvas id="net" aria-hidden="true"></canvas><div class="wrap">
+  <div>
+    <h1>Software engineering student who builds full-stack apps.</h1>
+    <div class="typed" id="typed" aria-live="off"></div>
+    <p>I take an idea from the database and REST API to the screen. I'm looking for a software engineering internship.</p>
+    <div class="btns"><a class="btn primary" href="#projects">See my projects</a><a class="btn" href="#contact">Get in touch</a></div>
+  </div>
+  <div class="code" aria-label="Summary of Ishi as a JSON response">
+    <div class="t"><span>GET /ishi</span><b>200 OK</b></div>
+<pre><span class="l" style="animation-delay:.3s">{</span>
+<span class="l" style="animation-delay:.6s">  <span class="k">"role"</span>: <span class="s">"Software Engineering student"</span>,</span>
+<span class="l" style="animation-delay:.9s">  <span class="k">"school"</span>: <span class="s">"NIBM, Sri Lanka"</span>,</span>
+<span class="l" style="animation-delay:1.2s">  <span class="k">"backend"</span>: [<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>, <span class="s">"FastAPI"</span>],</span>
+<span class="l" style="animation-delay:1.5s">  <span class="k">"frontend"</span>: [<span class="s">"React"</span>],</span>
+<span class="l" style="animation-delay:1.8s">  <span class="k">"databases"</span>: [<span class="s">"PostgreSQL"</span>, <span class="s">"MySQL"</span>],</span>
+<span class="l" style="animation-delay:2.1s">  <span class="k">"open_to"</span>: <span class="s">"Internship"</span></span>
+<span class="l" style="animation-delay:2.4s">}</span></pre>
+  </div>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<div class="wrap"><div class="stats">
+  <div class="stat"><b data-n="7">0</b><span>Projects built</span></div>
+  <div class="stat"><b data-n="6">0</b><span>Public GitHub repos</span></div>
+  <div class="stat"><b data-n="2">0</b><span>Software engineering diplomas</span></div>
+  <div class="stat"><b data-n="3" data-p="rd">0</b><span>Place, Innovate Expo 2026</span></div>
+</div></div>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <p class="lede">Each project started from a real problem. I analysed the requirements first, then designed and built the solution.</p>
+  <div class="filters" role="group" aria-label="Filter projects" id="filters"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <p class="lede">Technologies I have used in my projects and coursework.</p>
+  <div class="skills" id="skillgrid"></div>
+</div></section>
+
+<section id="about"><div class="wrap two">
+  <div>
+    <h2>Education</h2>
+    <div class="tl">
+      <div><small>Aug 2025 - Aug 2026</small><h3>Higher National Diploma in Software Engineering</h3><p>National Institute of Business Management (NIBM)</p></div>
+      <div><small>July 2024 - July 2025</small><h3>Diploma in Software Engineering</h3><p>National Institute of Business Management (NIBM)</p></div>
+    </div>
+  </div>
+  <div>
+    <h2>Highlights</h2>
+    <div class="award"><div class="r">3rd place</div><h3 style="margin:8px 0 4px;font-size:20px">Disaster Management Spider Robot</h3><p>Project Competition, Innovate Expo 2026. Recognised for technical skill, creativity and strong performance.</p></div>
+    <div class="award"><h3 style="margin-bottom:6px;font-size:20px">Academic research: Quantum Computing</h3><p>Researched quantum computing concepts, applications and emerging industry use cases, and summarised the findings in an academic write-up.</p></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap"><div class="box">
+  <h2>Let's work together</h2>
+  <p class="lede">I'm seeking a software engineering internship to grow my technical skills and learn from a real engineering team.</p>
+  <div class="btns" id="cbtns"></div>
+</div></div></section>
+</main>
+<footer><div class="wrap">© <span id="yr"></span> Ishara Sathsarani Herath. Press Ctrl K (or ⌘K) to jump anywhere.</div></footer>
+
+<dialog id="pal" aria-label="Quick menu"><input id="q" placeholder="Jump to..." autocomplete="off"><ul id="res"></ul></dialog>
+
+<script>
+/* ====== EDIT THIS BLOCK ====== */
+const PROFILE={name:"Ishara Sathsarani Herath",email:"isharasathsaranih@gmail.com",linkedin:"https://www.linkedin.com/in/ishara-herath-b43007437/",github:"https://github.com/ishisath"};
+/* ============================= */
+const PROJECTS=[
+{t:"Roamie: Smart Tourism Ecosystem",c:"Full-stack",f:1,d:"A tourism platform for travelers, guides, drivers and administrators. I mapped each role's workflow, then designed booking, marketplace, bidding and service-matching features around them.",tags:["FastAPI","React","PostgreSQL","REST APIs"],g:"https://github.com/ishisath/Roamie"},
+{t:"Bloomi: Flower Gift App",c:"Full-stack",d:"A flower gifting web app with REST APIs and business logic for flowers, customers and gift orders, backed by a MySQL database I designed.",tags:["Java","Spring Boot","MySQL","REST APIs"],g:"https://github.com/ishisath/bloomi-backend"},
+{t:"Cafe4You: Restaurant Management",c:"Full-stack",d:"A system that supports day-to-day restaurant operations, built after analysing how a restaurant actually runs.",tags:["Web app","Requirements analysis"],g:"https://github.com/ishisath/Cafe4You"},
+{t:"Bank Queue Management System",c:"Algorithms",d:"An efficient queue solution for a banking problem, built by applying programming, data structures and algorithms (PDSA) concepts.",tags:["Data structures","Algorithms"],g:"https://github.com/ishisath/BankQueueManagementSystem"},
+{t:"ML Car Price Prediction",c:"Data",d:"A machine learning model that predicts car prices. Covers data preparation, model development and evaluation.",tags:["Python","Machine learning"],g:"https://github.com/ishisath/car-price-prediction"},
+{t:"Smart Gadget Marketplace",c:"Data",d:"A gadget marketplace that uses both SQL and NoSQL databases to manage its data.",tags:["SQL","MongoDB","NoSQL"],g:"https://github.com/ishisath/smart-gadget-marketplace-v2-redesigned"},
+{t:"Azure Coast Hospitality: Data Warehouse & BI",c:"Data",d:"Analysed bookings, cancellations and seasonal demand. Designed an Oracle data warehouse and a Talend ETL pipeline, then built Power BI dashboards to support decisions.",tags:["Oracle","Talend","Power BI","ETL"]}];
+const SKILLS={"Backend":["Java","Spring Boot","Python","FastAPI","REST APIs"],"Frontend":["React","HTML & CSS","JavaScript"],"Databases":["MySQL","PostgreSQL","MongoDB","Oracle","SQL"],"Data & AI":["Machine learning","Talend ETL","Power BI","Data warehousing"]};
+const ROLES=["Full-stack web apps","REST APIs with Spring Boot and FastAPI","Data warehouses and dashboards","Machine learning models"];
+const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const $=s=>document.querySelector(s);
+const el=(t,p={},...k)=>{const e=document.createElement(t);Object.assign(e,p);k.flat().forEach(x=>e.append(x));return e};
+document.title=PROFILE.name+" | Software Engineering Student";
+$("#logo").textContent=PROFILE.name;$("#yr").textContent=new Date().getFullYear();
+
+/* marquee */
+const tech=["Java","Spring Boot","React","Python","FastAPI","PostgreSQL","MySQL","MongoDB","Oracle","Power BI","Talend","REST APIs"];
+$("#mq").append(...[...tech,...tech].map(t=>el("span",{textContent:t})));
+
+/* projects */
+const cats=["All",...new Set(PROJECTS.map(p=>p.c))];let active="All";
+function render(){
+  $("#grid").replaceChildren(...PROJECTS.filter(p=>active=="All"||p.c==active).map(p=>{
+    const c=el("article",{className:"proj"+(p.f?" feature":"")},el("div",{className:"cat",textContent:p.c}),el("h3",{textContent:p.t}),el("p",{textContent:p.d}),el("div",{className:"tags"},p.tags.map(t=>el("span",{textContent:t}))));
+    if(p.g)c.append(el("a",{className:"gh",href:p.g,target:"_blank",rel:"noopener",textContent:"View on GitHub"}));
+    c.onmousemove=e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty("--mx",x*100+"%");c.style.setProperty("--my",y*100+"%");if(!RM)c.style.transform=`perspective(900px) rotateX(${(.5-y)*5}deg) rotateY(${(x-.5)*5}deg)`};
+    c.onmouseleave=()=>c.style.transform="";
+    return c}));
+  document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.c==active));
+}
+$("#filters").append(...cats.map(c=>{const b=el("button",{className:"chip",textContent:c,type:"button"});b.dataset.c=c;b.onclick=()=>{active=c;render()};return b}));render();
+$("#skillgrid").append(...Object.entries(SKILLS).map(([k,v])=>el("div",{className:"skill"},el("h3",{textContent:k}),el("div",{},v.map(x=>el("span",{textContent:x}))))));
+const cb=$("#cbtns");
+if(PROFILE.email)cb.append(el("a",{className:"btn primary",href:"mailto:"+PROFILE.email,textContent:"Email me"}));
+if(PROFILE.linkedin)cb.append(el("a",{className:"btn",href:PROFILE.linkedin,target:"_blank",rel:"noopener",textContent:"LinkedIn"}));
+cb.append(el("a",{className:"btn"+(PROFILE.email?"":" primary"),href:PROFILE.github,target:"_blank",rel:"noopener",textContent:"GitHub"}));
+
+/* typing effect */
+(function(){const t=$("#typed");if(RM){t.textContent=ROLES[0];return}let i=0,j=0,del=0;
+(function tick(){const w=ROLES[i];t.textContent=w.slice(0,j);
+if(!del&&j==w.length){del=1;return setTimeout(tick,1600)}
+if(del&&j==0){del=0;i=(i+1)%ROLES.length}
+j+=del?-1:1;setTimeout(tick,del?25:55)})()})();
+
+/* counters */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);const n=+e.target.dataset.n,s=e.target.dataset.p||"";let v=0;
+const f=()=>{v++;e.target.textContent=v+(v==n?s:"");if(v<n)setTimeout(f,RM?0:140)};f()}),{threshold:.6});
+document.querySelectorAll("[data-n]").forEach(x=>io.observe(x));
+
+/* scroll progress */
+addEventListener("scroll",()=>{const h=document.documentElement;$("#bar").style.transform=`scaleX(${h.scrollTop/(h.scrollHeight-h.clientHeight||1)})`},{passive:true});
+
+/* theme */
+const root=document.documentElement;
+try{const s=localStorage.getItem("theme");if(s)root.dataset.theme=s}catch(e){}
+function toggle(){root.dataset.theme=root.dataset.theme=="light"?"dark":"light";try{localStorage.setItem("theme",root.dataset.theme)}catch(e){}col()}
+$("#theme").onclick=toggle;
+
+/* network canvas */
+const cv=$("#net"),cx=cv.getContext("2d");let W,H,P=[],m={x:-999,y:-999},on=true,C1="#5B8CFF",C2="#2DD4BF";
+function col(){const s=getComputedStyle(root);C1=s.getPropertyValue("--a").trim();C2=s.getPropertyValue("--b").trim()}
+function size(){const d=devicePixelRatio||1;W=cv.offsetWidth;H=cv.offsetHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);
+P=Array.from({length:Math.min(70,Math.floor(W/16))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}))}
+function draw(){cx.clearRect(0,0,W,H);
+for(const p of P){if(!RM){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1}
+cx.fillStyle=C2;cx.globalAlpha=.7;cx.beginPath();cx.arc(p.x,p.y,1.8,0,7);cx.fill()}
+for(let i=0;i<P.length;i++){for(let j=i+1;j<P.length;j++){const d=Math.hypot(P[i].x-P[j].x,P[i].y-P[j].y);if(d<120){cx.globalAlpha=(1-d/120)*.35;cx.strokeStyle=C1;cx.beginPath();cx.moveTo(P[i].x,P[i].y);cx.lineTo(P[j].x,P[j].y);cx.stroke()}}
+const d=Math.hypot(P[i].x-m.x,P[i].y-m.y);if(d<170){cx.globalAlpha=(1-d/170)*.6;cx.strokeStyle=C2;cx.beginPath();cx.moveTo(P[i].x,P[i].y);cx.lineTo(m.x,m.y);cx.stroke()}}
+if(on&&!RM)requestAnimationFrame(draw)}
+col();size();draw();addEventListener("resize",()=>{size();if(RM)draw()});
+$(".hero").addEventListener("mousemove",e=>{const r=cv.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top});
+$(".hero").addEventListener("mouseleave",()=>m={x:-999,y:-999});
+new IntersectionObserver(([e])=>{const was=on;on=e.isIntersecting;if(on&&!was)draw()}).observe($(".hero"));
+
+/* quick menu (Ctrl/Cmd + K) */
+const pal=$("#pal"),q=$("#q"),res=$("#res");let sel=0,items=[];
+const go=h=>()=>{pal.close();location.hash=h};
+const CMDS=[["Go to Projects",go("#projects")],["Go to Skills",go("#skills")],["Go to Education",go("#about")],["Go to Contact",go("#contact")],["Open GitHub",()=>open(PROFILE.github,"_blank")],["Toggle light or dark theme",()=>{pal.close();toggle()}]];
+function list(){items=CMDS.filter(c=>c[0].toLowerCase().includes(q.value.toLowerCase()));sel=Math.min(sel,Math.max(items.length-1,0));
+res.replaceChildren(...items.map((c,i)=>{const li=el("li",{textContent:c[0],className:i==sel?"on":""});li.onclick=c[1];return li}))}
+function openPal(){q.value="";sel=0;list();pal.showModal();q.focus()}
+$("#kbtn").onclick=openPal;
+addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()=="k"){e.preventDefault();pal.open?pal.close():openPal()}});
+q.oninput=()=>{sel=0;list()};
+q.onkeydown=e=>{if(e.key=="ArrowDown"){sel=Math.min(sel+1,items.length-1);list();e.preventDefault()}else if(e.key=="ArrowUp"){sel=Math.max(sel-1,0);list();e.preventDefault()}else if(e.key=="Enter"&&items[sel])items[sel][1]()};
+pal.onclick=e=>{if(e.target==pal)pal.close()};
+</script>
+</body>
+</html>
